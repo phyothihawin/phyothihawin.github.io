@@ -49,8 +49,8 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           {/* Global Ambient Background */}
           <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-zinc-50 dark:bg-black transition-colors duration-300">
-            <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-zinc-200/50 dark:bg-zinc-800/20 blur-[120px] animate-blob"></div>
-            <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-zinc-300/40 dark:bg-zinc-900/40 blur-[150px] animate-blob" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-zinc-200/50 dark:bg-zinc-800/20 blur-[120px] md:animate-blob"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-zinc-300/40 dark:bg-zinc-900/40 blur-[150px] md:animate-blob" style={{ animationDelay: '2s' }}></div>
           </div>
           {children}
         </ThemeProvider>

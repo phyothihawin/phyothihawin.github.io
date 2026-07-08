@@ -57,7 +57,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-zinc-800/10 dark:bg-white/20 blur-3xl rounded-full opacity-50"></div>
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-zinc-900 dark:text-white relative z-10">
               Hi, I'm <br />
-              <span className="text-4xl sm:text-6xl uppercase block mt-2 leading-none">
+              <span className="text-3xl sm:text-6xl uppercase block mt-2 leading-none">
                 {"Phyo Thiha Win".split("").map((char, index) => (
                   <span 
                     key={index} 
@@ -81,7 +81,7 @@ export default function Hero() {
           </div>
 
           <p className="text-zinc-600 dark:text-zinc-400 max-w-lg mb-10 text-lg leading-relaxed font-light">
-            I craft innovative and user-friendly applications across web and mobile platforms using JavaScript, TypeScript, Kotlin, and Dart. Always focused on code quality and performance.
+            I craft innovative and user-friendly applications across web and mobile platforms using Kotlin, Dart, Go and JavaScript. Always focused on system design,code quality and performance.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">

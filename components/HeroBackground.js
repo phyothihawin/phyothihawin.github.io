@@ -6,6 +6,9 @@ export default function HeroBackground() {
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
 
   useEffect(() => {
+    if (window.innerWidth < 768) {
+      return;
+    }
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -188,12 +191,12 @@ export default function HeroBackground() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       {/* Animated glowing ambient nebulae spots */}
-      <div className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[140px] mix-blend-multiply dark:mix-blend-screen z-0 animate-pulse-glow"></div>
-      <div className="absolute bottom-10 right-10 w-[700px] h-[700px] bg-blue-500/5 dark:bg-blue-500/5 rounded-full blur-[160px] mix-blend-multiply dark:mix-blend-screen z-0 animate-pulse-glow-delayed"></div>
-      <div className="absolute top-1/3 left-1/3 w-[800px] h-[800px] bg-zinc-200/20 dark:bg-zinc-800/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen z-0 animate-pulse-glow"></div>
+      <div className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[140px] mix-blend-multiply dark:mix-blend-screen z-0 md:animate-pulse-glow"></div>
+      <div className="absolute bottom-10 right-10 w-[700px] h-[700px] bg-blue-500/5 dark:bg-blue-500/5 rounded-full blur-[160px] mix-blend-multiply dark:mix-blend-screen z-0 md:animate-pulse-glow-delayed"></div>
+      <div className="absolute top-1/3 left-1/3 w-[800px] h-[800px] bg-zinc-200/20 dark:bg-zinc-800/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen z-0 md:animate-pulse-glow"></div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-100/50 to-zinc-50 dark:from-black/20 dark:via-black/40 dark:to-black/95 z-10 transition-colors duration-300"></div>
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-80 z-10"></canvas>
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-80 z-10 hidden md:block"></canvas>
     </div>
   );
 }

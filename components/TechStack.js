@@ -70,7 +70,7 @@ export default function TechStack() {
               className="glass-panel p-8 rounded-3xl hover:bg-zinc-200/50 dark:hover:bg-white/10 transition-all duration-500 group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)]"
               ref={el => itemsRef.current[index] = el}
             >
-              <div className="w-14 h-14 rounded-2xl bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 border border-zinc-200 dark:border-white/20 group-hover:bg-zinc-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-500 text-zinc-800 dark:text-white">
+              <div className="w-14 h-14 rounded-2xl bg-black/5 dark:bg-white/10 flex items-center justify-center mb-8 border border-zinc-200 dark:border-white/20 group-hover:bg-zinc-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-500 text-zinc-800 dark:text-white">
                 {cat.icon}
               </div>
               <h3 className="text-xl font-medium text-zinc-900 dark:text-white mb-4 tracking-wide">{cat.title}</h3>
