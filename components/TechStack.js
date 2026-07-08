@@ -13,7 +13,7 @@ export default function TechStack() {
     {
       title: "Languages",
       icon: <Code2 size={24} strokeWidth={1.5} />,
-      skills: ["Kotlin", "Dart", "Java", "JS & TS"]
+      skills: ["Kotlin", "Dart", "Go", "JS & TS"]
     },
     {
       title: "Architecture",
