@@ -129,7 +129,7 @@ export default function Hero() {
                 &nbsp;&nbsp;name: <span className="text-amber-600 dark:text-yellow-300">'PHYO THIHA WIN'</span>,<br />
                 &nbsp;&nbsp;role: <span className="text-amber-600 dark:text-yellow-300">'Software Engineer'</span>,<br />
                 &nbsp;&nbsp;skills: [<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-amber-600 dark:text-yellow-300">'Kotlin'</span>, <span className="text-amber-600 dark:text-yellow-300">'Dart'</span>, <span className="text-amber-600 dark:text-yellow-300">'Java'</span>, <span className="text-amber-600 dark:text-yellow-300">'JS/TS'</span><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-amber-600 dark:text-yellow-300">'Kotlin'</span>, <span className="text-amber-600 dark:text-yellow-300">'Dart'</span>, <span className="text-amber-600 dark:text-yellow-300">'Go'</span>, <span className="text-amber-600 dark:text-yellow-300">'JavaScript'</span><br />
                 &nbsp;&nbsp;],<br />
                 &nbsp;&nbsp;platforms: [<span className="text-amber-600 dark:text-yellow-300">'Android'</span>, <span className="text-amber-600 dark:text-yellow-300">'Flutter'</span>, <span className="text-amber-600 dark:text-yellow-300">'React'</span>, <span className="text-amber-600 dark:text-yellow-300">'Node.js'</span>],<br />
                 &nbsp;&nbsp;focus: [<span className="text-amber-600 dark:text-yellow-300">'Clean Architecture'</span>, <span className="text-amber-600 dark:text-yellow-300">'Security'</span>]<br />

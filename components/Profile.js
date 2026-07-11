@@ -101,7 +101,7 @@ export default function Profile() {
             <div className="glass-panel p-8 rounded-3xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-zinc-800 to-zinc-300 dark:from-white dark:to-zinc-700"></div>
               <p className="mb-6 leading-relaxed">
-                I’m an Android and Flutter developer passionate about building apps that make a real impact. With hands-on experience in <span className="text-zinc-900 dark:text-zinc-100 font-mono text-base bg-zinc-200/80 dark:bg-white/10 px-2 py-1 rounded">Kotlin, Java, Dart</span> and web technologies, I love turning ideas into clean, high-performing, and user-friendly experiences.
+                I’m an Android and Flutter developer passionate about building apps that make a real impact. With hands-on experience in <span className="text-zinc-900 dark:text-zinc-100 font-mono text-base bg-zinc-200/80 dark:bg-white/10 px-2 py-1 rounded">Kotlin, Dart, Go, JavaScript, TypeScript</span> and web technologies, I love turning ideas into clean, high-performing, and user-friendly experiences.
               </p>
               <p className="mb-0 leading-relaxed">
                 I’m eager to join a team that values creativity, collaboration, and clean code, where I can keep growing, share what I know, and help deliver products people enjoy using.
