@@ -18,7 +18,9 @@ The top navigation bar is highly responsive and adapts to user scrolling. It fea
   * [Experience](#03-professional-experience)
   * [Projects](#04-featured-projects)
   * [Contact](#05-get-in-touch)
-* **Theme Toggle**: Switch between **Light Mode** and **Dark Mode** dynamically.
+* **Theme Toggle**: Switch between **Light Mode** and **Dark Mode** dynamically. The site opens in **Dark Mode** by default, and remembers your choice.
+* **Active Section Highlight**: The link for the section you're reading is underlined as you scroll.
+* **Scroll Progress**: A thin reading-progress bar sits at the top of the page, and a back-to-top button with a progress ring appears once you scroll down.
 
 ---
 
@@ -42,7 +44,7 @@ const developer = {
 ➜ ~ █
 ```
 
-> **Aesthetic Highlights**: The terminal card tilts dynamically in response to mouse movement on desktop platforms using custom CSS and JS calculations, complete with classic macOS style control buttons (🔴 🟡 🟢) and a blurring glassmorphism backdrop.
+> **Aesthetic Highlights**: The role line and terminal command type themselves out on load, then the output lines appear one by one. The terminal card tilts in response to mouse movement on desktop (GSAP), complete with classic macOS style control buttons (🔴 🟡 🟢) and a blurring glassmorphism backdrop. Cards elsewhere on the page get a soft spotlight that follows the cursor, sections reveal as they scroll into view, and timelines draw themselves as you scroll. The theme toggle reveals the new theme as an expanding circle where supported. All motion is disabled for visitors who prefer reduced motion.
 
 ---
 
