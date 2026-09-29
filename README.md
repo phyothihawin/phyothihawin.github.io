@@ -161,12 +161,12 @@ This project was built using [Next.js](https://nextjs.org/) bootstrapped with [`
 
 First, install dependencies:
 ```bash
-pnpm install
+npm install
 ```
 
 Run the development server:
 ```bash
-pnpm dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.js`.
