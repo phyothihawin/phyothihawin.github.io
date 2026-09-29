@@ -1,6 +1,8 @@
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import ScrollProgress from "@/components/ScrollProgress";
+import Spotlight from "@/components/Spotlight";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${robotoMono.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${robotoMono.variable} h-full antialiased scroll-smooth dark`}
       suppressHydrationWarning
     >
       <head>
@@ -29,17 +31,16 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                var root = document.documentElement;
+                root.classList.add('js');
+                // Dark is the default. Only an explicit saved "light" choice overrides it
+                // (the OS colour-scheme preference is intentionally ignored).
+                var theme = 'dark';
                 try {
-                  var storedTheme = localStorage.getItem('theme');
-                  var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
-                    document.documentElement.classList.add('dark');
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                    document.documentElement.setAttribute('data-theme', 'light');
-                  }
+                  if (localStorage.getItem('theme') === 'light') theme = 'light';
                 } catch (e) {}
+                root.classList.toggle('dark', theme === 'dark');
+                root.setAttribute('data-theme', theme);
               })();
             `,
           }}
@@ -53,6 +54,8 @@ export default function RootLayout({ children }) {
             <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-zinc-300/40 dark:bg-zinc-900/40 blur-[150px] md:animate-blob" style={{ animationDelay: '2s' }}></div>
           </div>
           {children}
+          <ScrollProgress />
+          <Spotlight />
         </ThemeProvider>
       </body>
     </html>

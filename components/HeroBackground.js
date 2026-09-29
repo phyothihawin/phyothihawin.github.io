@@ -9,12 +9,16 @@ export default function HeroBackground() {
     if (window.innerWidth < 768) {
       return;
     }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     let w, h;
     let stars = [];
     let animationFrameId;
+    let running = false;
 
     const init = () => {
       w = canvas.width = window.innerWidth;
@@ -40,6 +44,8 @@ export default function HeroBackground() {
       ctx.clearRect(0, 0, w, h);
       const cx = w / 2;
       const cy = h / 2;
+      const now = Date.now();
+      const isDark = document.documentElement.classList.contains("dark");
 
       // Ease mouse offset for smooth parallax
       const mouse = mouseRef.current;
@@ -80,11 +86,10 @@ export default function HeroBackground() {
         const r = s.radius * scale * 2.5;
 
         // Opacity and twinkle animation based on depth
-        const twinkle = Math.sin(Date.now() * 0.0015 + i) * 0.35 + 0.65;
+        const twinkle = Math.sin(now * 0.0015 + i) * 0.35 + 0.65;
         const alpha = (1 - s.z / maxDepth) * twinkle;
 
         if (x >= 0 && x <= w && y >= 0 && y <= h) {
-          const isDark = document.documentElement.classList.contains("dark");
           const starBaseColor = isDark
             ? (s.type === 'white' ? '255, 255, 255' : '150, 180, 255')
             : (s.type === 'white' ? '80, 80, 80' : '120, 140, 200');
@@ -97,7 +102,7 @@ export default function HeroBackground() {
 
       // Draw Glowing Square Graph lines (Coordinate grid)
       if (w < 768) {
-        animationFrameId = requestAnimationFrame(draw);
+        if (running) animationFrameId = requestAnimationFrame(draw);
         return;
       }
 
@@ -108,8 +113,6 @@ export default function HeroBackground() {
       // Mouse global position in canvas
       const mx = cx + mouse.x * 1.5;
       const my = cy + mouse.y * 1.5;
-
-      const isDark = document.documentElement.classList.contains("dark");
 
       // 1. Draw base glowing square grid across full screen
       ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.04)";
@@ -167,7 +170,17 @@ export default function HeroBackground() {
       // Reset shadow effects for performance
       ctx.shadowBlur = 0;
 
+      if (running) animationFrameId = requestAnimationFrame(draw);
+    };
+
+    const start = () => {
+      if (running) return;
+      running = true;
       animationFrameId = requestAnimationFrame(draw);
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(animationFrameId);
     };
 
     const handleMouseMove = (e) => {
@@ -176,15 +189,20 @@ export default function HeroBackground() {
     };
 
     init();
-    draw();
+
+    // Only animate while the hero is on screen; the canvas is full-viewport, so
+    // painting it behind the rest of the page is wasted work.
+    const observer = new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()));
+    observer.observe(canvas);
 
     window.addEventListener("resize", init);
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", init);
       window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
+      stop();
     };
   }, []);
 
